@@ -10,114 +10,119 @@ MATRIX = []
 
 
 def create_matrix():
-  result = []
-
-  def create_line(number_of_elem):
     result = []
-    counter = 0
 
-    while counter < number_of_elem:
-      value = input(f"Введите {counter}-й элемент строки матрицы: ").strip()
+    def create_line(number_of_elem):
+        result = []
+        counter = 0
 
-      if (len(value) == 1 and value.isdigit()) or \
-         (len(value) > 1 and value[1:].isdigit() and
-         (value[0].isdigit() or value[0] == '-')):
-        result.append(int(value))
-      else:
-        result.append(0)
+        while counter < number_of_elem:
+            value = input(f"Введите {counter}-й элемент строки матрицы: ").strip()
 
-      counter += 1
+            if (len(value) == 1 and value.isdigit()) or \
+               (len(value) > 1 and value[1:].isdigit() and
+               (value[0].isdigit() or value[0] == '-')):
+                result.append(int(value))
+            else:
+                result.append(0)
+
+            counter += 1
+
+        return result
+
+    while True:
+        dimension = input("Введите размерность матрицы через пробел (2 3): ")
+        if dimension == '':
+            dimension = '2 3'
+        dimension = dimension.split()
+
+        if len(dimension) == 2 and dimension[0].isdigit() and dimension[1].isdigit():
+            if int(dimension[0]) <= 0 or int(dimension[1]) <= 0:
+                print("Размерность матрицы должна быть больше 0")
+                continue
+
+            for item in range(int(dimension[0])):
+                result.append(create_line(int(dimension[1])))
+
+        else:
+            print("Ошибка ввода, повторите ввод")
+            continue
+
+        break
 
     return result
 
-  while True:
-    dimension = input("Введите размерность матрицы через пробел (2 3): ")
-    if dimension == '':
-      dimension = '2 3'
-    dimension = dimension.split()
-
-    if len(dimension) == 2 and dimension[0].isdigit() and dimension[1].isdigit():
-      if int(dimension[0]) <= 0 or int(dimension[1]) <= 0:
-        print("Размерность матрицы должна быть больше 0")
-        continue
-
-      for item in range(int(dimension[0])):
-        result.append(create_line(int(dimension[1])))
-
-    else:
-      print("Ошибка ввода, повторите ввод")
-      continue
-
-    break
-
-  return result
-
 
 def view_matrix():
-  print(f"матрица имеет следующий вид: {str(MATRIX)}")
+    print(f"матрица имеет следующий вид: {str(MATRIX)}")
 
 
 def sum_item_matrix():
-  sum = 0
+    sum = 0
 
-  for line in MATRIX:
-    for item in line:
-      sum += item
+    for line in MATRIX:
+        for item in line:
+            sum += item
 
-  print("Сумма элементов матрицы:", sum)
+    print("Сумма элементов матрицы:", sum)
 
 
 def max_item_matrix():
-  max_item = None
+    max_item = None
 
-  for line in MATRIX:
-    for item in line:
-      if max_item is None or item > max_item:
-        max_item = item
+    for line in MATRIX:
+        for item in line:
+            if max_item is None or item > max_item:
+                max_item = item
 
-  print("Максимальный элемент матрицы:", max_item)
+    print("Максимальный элемент матрицы:", max_item)
 
 
 def min_item_matrix():
-  min_item = None
+    min_item = None
 
-  for line in MATRIX:
-    for item in line:
-      if min_item is None or item < min_item:
-        min_item = item
+    for line in MATRIX:
+        for item in line:
+            if min_item is None or item < min_item:
+                min_item = item
 
-  print("Минимальный элемент матрицы:", min_item)
+    print("Минимальный элемент матрицы:", min_item)
 
 
+call_function = {1: create_matrix, 2: view_matrix, 3: sum_item_matrix,
+                 4: max_item_matrix, 5: min_item_matrix}
 while True:
-  if MATRIX:
-    print("Выберите цифру пункта, что хотите сделать:")
-    print('1.Создание')
-    print('2.Вывод')
-    print('3.Сумма всех элементов')
-    print('4.Нахождение максимального элемента')
-    print('5.Нахождение минимального элемента')
-    print("0.Выход")
-    print("-" * 30)
-    choice = input("Сделайте ваш выбор: ")
+    if MATRIX:
+        print("Выберите цифру пункта, что хотите сделать:")
+        print('1.Создание')
+        print('2.Вывод')
+        print('3.Сумма всех элементов')
+        print('4.Нахождение максимального элемента')
+        print('5.Нахождение минимального элемента')
+        print("0.Выход")
+        print("-" * 30)
+        choice = input("Сделайте ваш выбор: ")
 
-    if not choice.isdigit() or int(choice) > 5:
-      print("Ошибка ввода, повторите ввод")
-      continue
+        if not choice.isdigit() or int(choice) > 5:
+            print("Ошибка ввода, повторите ввод")
+            continue
 
-    if int(choice) == 0:
-      print("До свидания...")
-      break
-    elif int(choice) == 1:
-      MATRIX = create_matrix()
-    elif int(choice) == 2:
-      view_matrix()
-    elif int(choice) == 3:
-      sum_item_matrix()
-    elif int(choice) == 4:
-      max_item_matrix()
-    elif int(choice) == 5:
-        min_item_matrix()
+        choice_int = int(choice)
+        if choice_int == 0:
+            print("До свидания...")
+            break
+        # else:
+        #     call_function[choice_int]()
+        elif choice_int == 1:
+            MATRIX = create_matrix()
+        elif choice_int == 2:
+            view_matrix()
+        elif choice_int == 3:
+            sum_item_matrix()
+        elif choice_int == 4:
+            max_item_matrix()
+        elif choice_int == 5:
+            min_item_matrix()
 
-  else:
-    MATRIX = create_matrix()
+    else:
+        MATRIX = create_matrix()
