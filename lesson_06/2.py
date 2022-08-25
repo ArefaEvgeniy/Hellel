@@ -89,8 +89,8 @@ def min_item_matrix():
     print("Минимальный элемент матрицы:", min_item)
 
 
-call_function = {1: create_matrix, 2: view_matrix, 3: sum_item_matrix,
-                 4: max_item_matrix, 5: min_item_matrix}
+# call_function = {1: create_matrix, 2: view_matrix, 3: sum_item_matrix,
+#                  4: max_item_matrix, 5: min_item_matrix}
 while True:
     if MATRIX:
         print("Выберите цифру пункта, что хотите сделать:")

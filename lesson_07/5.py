@@ -1,24 +1,29 @@
-a = [1, 2, 3, 4]
+def get_input_data():
+    return int(input("enter integer number "))
+
+def make_tasks_with_wile(input_data):
+
+    null = 0
+    summa = 0
+
+    while null <= input_data:
+        null = null+1
+        if not null %3 == 0:
+            summa = summa+null*null*null
+    print(summa)
 
 
-def example(b=None):
-    if b is None:
-        b = [1, 2]
-    print('b before:', b)
-    sum = 0
-    for item in b:
-        sum += item
-    b.append(sum)
-    print('b after:', b)
-    return sum
+def make_tasks_with_for(input_data):
+
+    null = 0
+    summa = 0
+
+    for null in range(0, input_data):
+        summa = summa+null*null*null
+        print(summa)
 
 
-print(example())
-print('-' * 50)
-print(example(a))
-print('-' * 50)
-print(example())
-print('-' * 50)
-print(example())
-print('-' * 50)
-print(example(a))
+out_number = get_input_data()
+make_tasks_with_wile(out_number)
+
+make_tasks_with_for(out_number)

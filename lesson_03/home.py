@@ -5,3 +5,33 @@
 #    присваивать их друг другу нельзя. Все три переменные необходимо приводить к одному и тому же типу,
 #    точно так же и обе последние переменные необходимо приводить к одному и тому же типу.
 
+
+a1 = "text"
+a2 = "text"
+a3 = "text"
+
+print('a1:', a1, ' type:', str(type(a1)), ' id:', str(id(a1)))
+print('a2:', a2, ' type:', str(type(a2)), ' id:', str(id(a2)))
+print('a3:', a3, ' type:', str(type(a3)), ' id:', str(id(a3)))
+
+print('*' * 50)
+
+a1 = list(a1)
+a2 = list(a2)
+a3 = list(a3)
+print('a1:', a1, ' type:', str(type(a1)), ' id:', str(id(a1)))
+print('a2:', a2, ' type:', str(type(a2)), ' id:', str(id(a2)))
+print('a3:', a3, ' type:', str(type(a3)), ' id:', str(id(a3)))
+
+print('*' * 50)
+
+b1 = ['test', 1, 5]
+b2 = ['test', 1, 5]
+print('b1:', b1, ' type:', str(type(b1)), ' id:', str(id(b1)))
+print('b2:', b2, ' type:', str(type(b2)), ' id:', str(id(b2)))
+
+print('*' * 50)
+b1 = bool(b1)
+b2 = bool(b2)
+print('b1:', b1, ' type:', str(type(b1)), ' id:', str(id(b1)))
+print('b2:', b2, ' type:', str(type(b2)), ' id:', str(id(b2)))
