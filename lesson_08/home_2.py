@@ -3,4 +3,9 @@
 # регистр букв не учитывать.
 
 
-inputdata = ['Страна', 'шалаш', 'Летел', 'вертолёт', 'УЧУ', 'мэм', 'язык']
+input_data = ['Страна', 'шалаш', 'Летел', 'вертолёт', 'УЧУ', 'мэм', 'язык']
+
+polindroms = list(filter(lambda word: word.lower() == word[::-1].lower(),
+                         input_data))
+
+print(polindroms)
