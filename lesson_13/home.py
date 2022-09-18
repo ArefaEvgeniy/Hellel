@@ -45,6 +45,12 @@ class Circle(Point):
         radius = self.radius + other.radius
         return Circle(radius, x, y)
 
+    def __sub__(self, other):
+        x = self.x - other.x
+        y = self.y - other.y
+        radius = abs(self.radius - other.radius)
+        return Circle(radius, x, y) if radius else Point(x, y)
+
     def edge_distance_from_origin(self):
         return abs(self.distance_from_origin() - self.radius)
 
