@@ -3,13 +3,3 @@
 
 scores = [66, 90, 68, 59, 76, 60, 88, 74, 81, 65, 75, 99, 12]
 
-
-def is_A(score):
-    return score >= 75
-
-
-over_75 = list(filter(is_A, scores))
-print(over_75)
-
-over2_75 = list(filter(lambda x: x >= 75, scores))
-print(over2_75)
