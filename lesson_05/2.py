@@ -4,3 +4,14 @@
 # Если ввозраст больше 12 и меньше 18 - вывести CocaCola
 # Иначе - вывести Beer
 
+
+age = input("введите ваш возраст ")
+
+if not age.isdigit() or int(age) < 0:
+    print("Wrong input")
+elif int(age) <= 12:
+    print('Orange')
+elif int(age) < 18:
+    print('CocaCola')
+else:
+    print('Beer')
