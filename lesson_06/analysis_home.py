@@ -58,7 +58,7 @@ while True:
     # Операторы циклов While
     i = 0
     ksum = 0
-    while i <= number:
+    while i < number:
         i += 1
         if i % 3 == 0:
             continue
