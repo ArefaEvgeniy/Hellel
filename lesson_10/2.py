@@ -4,5 +4,13 @@
 
 
 artist_bytes = b'Tage \xc3\x85s\xc3\xa9n'
+print(artist_bytes)
 
+artist_str = artist_bytes.decode()
+print(artist_str)
 
+artist_b_Latin = artist_str.encode('Latin1')
+print(artist_b_Latin)
+
+artist_str = artist_b_Latin.decode('Latin1')
+print(artist_str)
