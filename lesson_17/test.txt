@@ -1,0 +1,9 @@
+>>> from task_01 import summa
+>>> summa(4, 5)
+9
+>>> summa(-4, 4)
+0
+>>> summa('4', '5')
+'45'
+>>> summa('4', 5)
+Not support type
