@@ -26,18 +26,48 @@ from Extractors.beautiful import BeautifulSoupExtractor
 
 def compare_result(results):
     result = {}
-    ...
+    for index, item_dict in enumerate(results):
+        for key in item_dict:
+            if not result.get(key):
+                result.update({key: item_dict[key]})
+            elif (item_dict[key] != result[key] and len(results) > index+1
+                  and item_dict[key] == results[index+1][key]):
+                result.update({key: results[index+1][key]})
 
     return result
 
 
 def show_result(result):
-    ...
+    indent = 0
+    for item in result:
+        if len(item) > indent:
+            indent = len(item)
+
+    for key in result:
+        if isinstance(result[key], list):
+            res = ', '.join(result[key])
+        elif key == const.CONTENT:
+            res = result['content'].replace('\n', '')[:2000]
+        else:
+            res = str(result[key])
+        if key == const.PUBLISH_DATE:
+            res = f'\033[38;5;240m{res}\033[0;0m'
+        elif key == const.TITLE:
+            res = f'\033[38;5;39m{res}\033[0;0m'
+
+        print(f'\033[38;5;220m{key:>{indent}}:\033[0;0m {res}')
 
 
 def main(url):
     results = []
-    ...
+
+    extractors = [GooseExtractor, NewsExtractor, BeautifulSoupExtractor]
+    for name_extractor in extractors:
+        extractor = name_extractor(url)
+        results.append(extractor.extract_tags())
+
+    result = compare_result(results)
+    show_result(result)
 
 
 if __name__ == "__main__":
