@@ -36,9 +36,3 @@ class Dolphin(Animal):
 class Monster(Dog, Dolphin):
     ...
 
-
-monster_1 = Monster('AAAsd')
-monster_1.say()
-monster_1.go()
-
-print(Monster.mro())

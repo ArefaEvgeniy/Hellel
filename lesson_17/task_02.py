@@ -1,14 +1,3 @@
-"""
->>> a = Circle(5)
->>> b = Circle(2, 4, 6)
->>> c = a + b
->>> print(c)
-Circle(4, 6), radius=7)
->>> a.area()
-78.53981633974483
-"""
-
-
 import math
 
 
@@ -49,7 +38,3 @@ class Circle(object):
     def __str__(self):
         return f'Circle({self.x}, {self.y}), radius={self.radius})'
 
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()

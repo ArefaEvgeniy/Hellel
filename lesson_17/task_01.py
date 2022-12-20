@@ -11,7 +11,3 @@ def summa(a, b):
 def mines(a, b):
     return a - b
 
-
-# if __name__ == "__main__":
-#     import doctest
-#     doctest.testfile('test.txt')

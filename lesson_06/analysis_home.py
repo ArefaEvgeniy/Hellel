@@ -44,36 +44,3 @@ while True:
         break
     else:
         continue
-
-
-
-while True:
-    number = input('insert  value')
-    if not number.isdigit() or int(number) == 0:
-        print('try one more time')
-        continue
-
-    number = int(number)
-
-    # Операторы циклов While
-    i = 0
-    ksum = 0
-    while i < number:
-        i += 1
-        if i % 3 == 0:
-            continue
-        ksum += i**3
-    print(ksum)
-
-    ksum = 0
-    for number in range(number):
-        if number % 3 == 0:
-            continue
-        a = number ** 3
-        ksum = a + ksum
-    print(ksum)
-
-    print('Желаете выйти? (Д/Y):\nЖелаете продолжить нажмите Enter: ')
-    answer = input()
-    if answer.upper() in ('Y', 'Д'):
-        break

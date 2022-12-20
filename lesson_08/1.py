@@ -4,9 +4,3 @@
 
 areas = [3.445456436, 6.2245456765, 10.53456765, 2.943543675]
 
-result = list(map(round, areas, range(1, len(areas) + 1)))
-
-print(result)
-
-
-print(round(3.146365, 2))

@@ -10,6 +10,3 @@ BASE_CAR = [
     {'number': 'KA345-73', 'year': 2000},
     {'number': 'CA576-28', 'year': 1993}
 ]
-
-list_car = [xxx['number'] for xxx in BASE_CAR if xxx['year'] >= 2015]
-print(list_car)
