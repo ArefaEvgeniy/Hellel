@@ -4,7 +4,7 @@
 
 lst = ['a', 'f', 'r', 'sdfewf', 67, 8, 'hh', 0]
 
-target = 'v'
+target = 'f'
 
 index = 0
 while index < len(lst):
@@ -14,4 +14,13 @@ while index < len(lst):
 else:
     index = -1
 
-print('Index:', index)
+print('Index 1:', index)
+
+
+for index, item in enumerate(lst):
+    if item == target:
+        break
+else:
+    index = -1
+
+print('Index 2:', index)

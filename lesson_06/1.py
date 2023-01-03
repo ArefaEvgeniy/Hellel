@@ -10,3 +10,9 @@ BASE_CAR = [
     {'number': 'KA345-73', 'year': 2000},
     {'number': 'CA576-28', 'year': 1993}
 ]
+
+n = 2020
+
+list_car = [(i['number'], i['year']) for i in BASE_CAR if i['year'] >= n]
+
+print(list_car)
