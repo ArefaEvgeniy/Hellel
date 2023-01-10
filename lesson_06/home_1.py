@@ -9,3 +9,6 @@ chess_players = {
     "Caruana, Fabiano": 2792,
     "Nepomniachtchi, Ian": 2773
 }
+
+chess_players_reversed = {chess_players[key]: key for key in chess_players}
+print(chess_players_reversed)
